@@ -10,3 +10,8 @@
   Font img: https://www.gta.ufrj.br
 </p>
 <p align="justify">A hash function is an algorithm that maps variable-length data to fixed-length data. The values returned by a hash function are called hash values, hash codes, hash sums, checksums, or simply hashes.</p>
+
+<h2>Whats is Md5?</h2>
+<p align="justify">MD5 is a 128-bit unidirectional cryptographic scatter function developed by RSA Data Security, Inc., described in RFC 1321, and widely used by point-to-point protocol software for file and log integrity checking.</p>
+<p align="center">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/CPT-Hashing-File-Transmission.svg/350px-CPT-Hashing-File-Transmission.svg.png"><br>Font img: https://upload.wikimedia.org</p>
