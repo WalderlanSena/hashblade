@@ -25,3 +25,11 @@
 <p align="justify">Pseudo-collision attacks against up to 46 rounds of SHA-256. SHA-2 is a set of cryptographic hash functions designed by the NSA. SHA stands for secure hash algorithm.</p> 
 <p align="center">
   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/SHA-2.svg/400px-SHA-2.svg.png"><br>Font img: https://upload.wikimedia.org</p>
+
+<h2>Documentaçao - HashBlade</h2>
+
+<p align="justify"> Hashblade is a multiplatform software (Gnu / Linux, MacOs, Windows) that performs text encryption for: MD5, SHA1, SHA256 and SHA512. However, the software also has the brute force functionality in the hashes previously mentioned. <br>
+"In computer science, brute force search or exhaustive search, also known as generate and test, is a trivial yet very general problem solving technique that consists of enumerating all possible candidates for the solution and checking each candidate to see if he or she satisfies the problem statement."
+</p>
+
+
