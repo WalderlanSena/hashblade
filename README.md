@@ -35,7 +35,7 @@
 <h3>:information_source: Software startup screen</h3>
 
 <p align="center">
-  Ubuntu Operating System<br />
+  Ubuntu Gnu/Linux Operating System<br />
   <img src="https://github.com/WalderlanSena/hashblade/blob/master/src/hashbladeLinux.png">
 </p>
 
@@ -56,3 +56,39 @@
  g++ hashblade.cpp lib/md5.cpp lib/sha1.cpp lib/sha256.cpp lib/sha512.cpp lib/libhashblade.cpp -o hashblade
  ```
  <p align="justify">:heavy_exclamation_mark: In Windows, the process is the same, and only the extension of the final file that will be changed to <b>hashblade.exe</b></p>
+
+
+<h3>:information_source: Text Encryption</h3>
+
+```shellscript
+hashblade -md5 "12345"
+```
+<p align="center">
+  Ubuntu Gnu/Linux Operating System<<br/>
+  <img src="https://github.com/WalderlanSena/hashblade/blob/master/src/hashBladeMD5Linux.png">
+</p>
+
+<h4>More Options: (Remember that in windows systems, the .exe extension is necessary)</h4>
+
+```shellscript
+hashblade -sha1 "12345"
+```
+
+```shellscript
+hashblade -sha256 "12345"
+```
+
+```shellscript
+hashblade -sha512 "12345"
+```
+
+<p align="justify">And if you want to get all the hashes just type:</p>
+
+```shellscript
+hashblade.exe "12345"
+```
+
+<p align="center">
+  Windows 7 Operating System<br/>
+  <img src="https://github.com/WalderlanSena/hashblade/blob/master/src/HashBladeWinAll.png">
+</p>
