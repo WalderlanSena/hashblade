@@ -26,7 +26,7 @@
 <p align="center">
   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/SHA-2.svg/400px-SHA-2.svg.png"><br>Font img: https://upload.wikimedia.org</p>
 
-<h2>Documentaçao - HashBlade</h2>
+<h2>Documentation - HashBlade</h2>
 
 <p align="justify"> Hashblade is a multiplatform software (Gnu / Linux, MacOs, Windows) that performs text encryption for: MD5, SHA1, SHA256 and SHA512. However, the software also has the brute force functionality in the hashes previously mentioned. <br>
 "In computer science, brute force search or exhaustive search, also known as generate and test, is a trivial yet very general problem solving technique that consists of enumerating all possible candidates for the solution and checking each candidate to see if he or she satisfies the problem statement."
@@ -68,7 +68,7 @@ hashblade -md5 "12345"
   <img src="https://github.com/WalderlanSena/hashblade/blob/master/src/hashBladeMD5Linux.png">
 </p>
 
-<h4>More Options: (Remember that in windows systems, the .exe extension is necessary)</h4>
+<h4>:white_check_mark: More Options: (Remember that in windows systems, the .exe extension is necessary)</h4>
 
 ```shellscript
 hashblade -sha1 "12345"
@@ -92,3 +92,37 @@ hashblade.exe "12345"
   Windows 7 Operating System<br/>
   <img src="https://github.com/WalderlanSena/hashblade/blob/master/src/HashBladeWinAll.png">
 </p>
+
+<h3>:information_source: Encrypting a word list</h3>
+
+```shellscript
+hashblade.exe -list -sha1 mylist.txt
+```
+<p align="center">
+  Ubuntu Gnu/Linux Operating System<br/>
+  <img src="https://github.com/WalderlanSena/hashblade/blob/master/src/HashBladeSha1ListLinux.png">
+</p>
+
+<h4>:white_check_mark: Subsequently after encrypting every word list, the software generates a new list with the name <b>listHash.txt</b> with encrypted hashes:</h4>
+
+<p align="center">
+  Ubuntu Gnu/Linux Operating System<br/>
+  <img src="https://github.com/WalderlanSena/hashblade/blob/master/src/ListFinal.png">
+</p>
+
+<h3>:information_source: Brute Force Method</h3>
+
+<p align="justify">The use of brute-force methods requires 3 parameters: In which type of hash the attack will apply, the list of possible passwords, and the hash itself:</p>
+
+```shellscript
+hashblade -md5-brute wordlists/wordlistNumber.txt 827ccb0eea8a706c4c34a16891f84e7b
+```
+<p align="center">
+  Ubuntu Gnu/Linux Operating System<br/>
+  <img src="https://github.com/WalderlanSena/hashblade/blob/master/src/HashBladeMd5BruteLinux.png">
+</p>
+
+
+<h3>:information_source: License</h3>
+
+<p align="justify">The hash blade is open source software licensed under the <a href="https://github.com/WalderlanSena/hashblade/blob/master/LICENSE">MIT LICENSE</a></p>
