@@ -15,7 +15,7 @@ void splash ()
     cout << "          contato@mentesvirtuaissena.com               "  << endl; 
     cout << "       https://www.MentesVirtuaisSena.com              "  << endl  << endl; 
 
-}//end método splash
+}//end splash
 
 void help ()
 {
@@ -161,29 +161,42 @@ void init (int argc, const char *argv[])
 
 void openFile (char const *arq, string type)
 {
-	//Open and read file
-	FILE *fileOpen = fopen(arq, "r");
-	FILE *outFile  = fopen("listOut.txt", "w");
+	//Starting the object of type fstream and open and read file
+	fstream fileOpen;
+	fileOpen.open(arq, ios::in);
+	//Starting the object of type fstream and defining the opening of the same
+	fstream arquivo;
+	arquivo.open("listHash.txt", ios::out);
 	//check if the file could be opened
-	if (fileOpen != NULL) {
+	if (fileOpen.is_open()) {
+		//Receives each line read in each loop execution
+		string linha;
 		//Receives each line read in each loop execution
 		char lineRead[250];
 		//Tie that runs through each line and implement all of the encryption files
-		while (fscanf(fileOpen, "%s", &lineRead) != EOF) {
+		while (getline(fileOpen, linha)) {
 			if (type == "-md5") {
-				cout << "Md5 >>> " << md5(lineRead) << endl;
+				arquivo << md5(linha) << "\n";
+				cout << "Md5 >>> " << md5(linha) << endl;
 			} else if (type == "-sha1") {
-				cout << "Sha1 >>> " << sha1(lineRead) << endl;
+				arquivo << sha1(linha) << "\n";
+				cout << "Sha1 >>> " << sha1(linha) << endl;
 			} else if (type == "-sha256") {
-				cout << "Sha256 >>> " << sha256(lineRead) << endl;
-			} else if (type == "-sha512") { 
-				cout << "Sha512 >>> " << sha512(lineRead) << endl;
+				arquivo << sha256(linha) << "\n";
+				cout << "Sha256 >>> " << sha256(linha) << endl;
+			} else if (type == "-sha512") {
+				arquivo << sha512(linha) << "\n"; 
+				cout << "Sha512 >>> " << sha512(linha) << endl;
 			} else if (type == "-all") {
-				cout << "Line : " << lineRead << endl;
-				cout << "Md5    >>> " << md5(lineRead)    << endl;
-				cout << "Sha1   >>> " << sha1(lineRead)   << endl;
-				cout << "Sha256 >>> " << sha256(lineRead) << endl;
-				cout << "Sha512 >>> " << sha512(lineRead) << endl;
+				arquivo << md5(linha)    << "\n";
+				arquivo << sha1(linha)   << "\n";
+				arquivo << sha256(linha) << "\n";
+				arquivo << sha512(linha) << "\n";
+				cout << "Line : " << linha << endl;
+				cout << "Md5    >>> " << md5(linha)    << endl;
+				cout << "Sha1   >>> " << sha1(linha)   << endl;
+				cout << "Sha256 >>> " << sha256(linha) << endl;
+				cout << "Sha512 >>> " << sha512(linha) << endl;
 				cout << "-----------------------------------------------" << endl;
 			} else {
 				splash();
@@ -192,7 +205,8 @@ void openFile (char const *arq, string type)
 			}//end if
 		}//end while
 		//Closes the file
-		fclose(fileOpen);
+		arquivo.close();
+		fileOpen.close();
 	} else {
 		cout << "Could not read past file..." << endl;
 	}
@@ -200,57 +214,59 @@ void openFile (char const *arq, string type)
 
 void alg_forcebrute (char const *arq, string hash, string type)
 {
-	//Open and read file
-	FILE *fileOpen = fopen(arq, "r");
+	//Starting the object of type fstream and open and read file
+	fstream fileOpen;
+	fileOpen.open(arq, ios::in);
 	
 	//check if the file could be opened
-	if (fileOpen != NULL) {
+	if (fileOpen.is_open()) {
 		//Receives each line read in each loop execution
-		char lineRead[250];
-		while (fscanf(fileOpen, "%s", lineRead)) {
+		string linha;
+		//Loop that goes through every list to perform encryption and brute force
+		while (getline(fileOpen, linha)) {
 			if (type == "md5") {
-				if (md5(lineRead) == hash) {
+				if (md5(linha) == hash) {
 					cout << endl << endl;
 					cout << "++++++++++++++++++++++++++++++++++++++++++++++++++++" 	 << endl;
-					cout << "+        >>> SENHA ENCONTRADA COM SUCESSO <<<      +" << "  " << lineRead << endl;
+					cout << "+        >>> SENHA ENCONTRADA COM SUCESSO <<<      +" << "  " << linha << endl;
 					cout << "++++++++++++++++++++++++++++++++++++++++++++++++++++" 	 << endl << endl;
 					exit(0);
 				} else {
-					cout << "[ FAILED ] " <<  md5(lineRead) << " != " << hash << " ( " << lineRead << " )" << endl;
+					cout << "[ FAILED ] " <<  md5(linha) << " != " << hash << " ( " << linha << " )" << endl;
 				}
 			} else if (type == "sha1") {
-				if (sha1(lineRead) == hash) {
+				if (sha1(linha) == hash) {
 					cout << endl << endl;
 					cout << "++++++++++++++++++++++++++++++++++++++++++++++++++++" 	 << endl;
-					cout << "+        >>> SENHA ENCONTRADA COM SUCESSO <<<      +" << "  " << lineRead << endl;
+					cout << "+        >>> SENHA ENCONTRADA COM SUCESSO <<<      +" << "  " << linha << endl;
 					cout << "++++++++++++++++++++++++++++++++++++++++++++++++++++" 	 << endl << endl;
 					exit(0);
 				} else {
-					cout << "[ FAILED ] " <<  sha1(lineRead) << " != " << hash << " ( " << lineRead << " )" << endl;
+					cout << "[ FAILED ] " <<  sha1(linha) << " != " << hash << " ( " << linha << " )" << endl;
 				}
 			} else if (type == "sha256") {
-				if (sha256(lineRead) == hash) {
+				if (sha256(linha) == hash) {
 					cout << "++++++++++++++++++++++++++++++++++++++++++++++++++++" 	 << endl;
-					cout << "+        >>> SENHA ENCONTRADA COM SUCESSO <<<      +" << "  " << lineRead << endl;
+					cout << "+        >>> SENHA ENCONTRADA COM SUCESSO <<<      +" << "  " << linha << endl;
 					cout << "++++++++++++++++++++++++++++++++++++++++++++++++++++" 	 << endl << endl;
 					exit(0);
 				} else {
-					cout << "[ FAILED ] " <<  sha256(lineRead) << " != " << hash << " ( " << lineRead << " )" << endl;
+					cout << "[ FAILED ] " <<  sha256(linha) << " != " << hash << " ( " << linha << " )" << endl;
 				}
 			} else if (type == "sha512") {
-				if (sha512(lineRead) == hash) {
+				if (sha512(linha) == hash) {
 					cout << "++++++++++++++++++++++++++++++++++++++++++++++++++++" 	 << endl;
-					cout << "+        >>> SENHA ENCONTRADA COM SUCESSO <<<      +" << "  " << lineRead << endl;
+					cout << "+        >>> SENHA ENCONTRADA COM SUCESSO <<<      +" << "  " << linha << endl;
 					cout << "++++++++++++++++++++++++++++++++++++++++++++++++++++" 	 << endl << endl;
 					exit(0);
 				} else {
-					cout << "[ FAILED ] " <<  sha512(lineRead) << " != " << hash << " ( " << lineRead << " )" << endl;
+					cout << "[ FAILED ] " <<  sha512(linha) << " != " << hash << " ( " << linha << " )" << endl;
 				}
 			} else {
 				exit(0);
 			}
 		}//end while
-		fclose(fileOpen);
+		fileOpen.close();
 	} else {
 		cout << "Error: Not found wordlist " << arq << endl;
 	}//end if

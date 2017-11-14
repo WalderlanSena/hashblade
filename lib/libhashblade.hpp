@@ -13,9 +13,9 @@
 
 //Importing standard operating system libraries
 #include <iostream>
-#include <cstdio>
 #include <cstdlib>
-#include <string>
+#include <cstring>
+#include <fstream>
 //Importing encryption libraries
 #include "md5.h"
 #include "sha1.h"
@@ -34,7 +34,11 @@
     #define CLEAR "clear"
 #endif
 
-using std::cout; using std::endl; using std::string;
+using std::cout; 
+using std::endl; 
+using std::string; 
+using std::fstream;
+using std::ios;
 
 /**
  *	Shows the banner related to the software
