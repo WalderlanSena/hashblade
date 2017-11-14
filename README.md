@@ -32,4 +32,27 @@
 "In computer science, brute force search or exhaustive search, also known as generate and test, is a trivial yet very general problem solving technique that consists of enumerating all possible candidates for the solution and checking each candidate to see if he or she satisfies the problem statement."
 </p>
 
+<h3>:information_source: Software startup screen</h3>
 
+<p align="center">
+  Ubuntu Operating System<br />
+  <img src="https://github.com/WalderlanSena/hashblade/blob/master/src/hashbladeLinux.png">
+</p>
+
+<p align="center">
+  Windows Operating System<br />
+  <img src="https://github.com/WalderlanSena/hashblade/blob/master/src/hashbladewin.png">
+</p>
+
+<h3>:information_source: Compilation</h3>
+
+<p align="justify">The compilation process is basically the same in all operating systems, because it is a software written in c ++ language. While using <b>:penguin: Gnu/Linux</b> operating systems, just use the <b>make</b> command to compile and generate the binary <b>ELF</b>
+  
+ ```shellscript  
+ make
+ ```
+ or
+  ```shellscript
+ g++ hashblade.cpp lib/md5.cpp lib/sha1.cpp lib/sha256.cpp lib/sha512.cpp lib/libhashblade.cpp -o hashblade
+ ```
+ <p align="justify">:heavy_exclamation_mark: In Windows, the process is the same, and only the extension of the final file that will be changed to <b>hashblade.exe</b></p>
